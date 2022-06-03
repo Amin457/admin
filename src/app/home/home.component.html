@@ -1,0 +1,19 @@
+<div id="mySidenav" class="sidenav" [ngClass]="clicked ?'sidenav':'open'">
+    <a routerLink="dashboard"><i class="fa fa-tachometer" aria-hidden="true"></i>DigiCard Dashboard</a>
+    <a routerLink="partenaires"><i class="fa fa-user" aria-hidden="true" style="padding-right:10px ;"></i>Les partenaires</a>
+    <a routerLink="clients"><i class="fa fa-user" aria-hidden="true" style="padding-right:10px ;"></i>Les clients</a>
+    <a routerLink="demande"><i class="fa fa-bell" aria-hidden="true" style="padding-right:10px ;"></i>Demande partenariat</a>
+    <a (click)="logout()"><i class="" aria-hidden="true" style="padding-right:10px ;"></i>logout</a>
+</div>
+
+
+
+
+<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<div class="main" [ngClass]="clicked ?'main':'openmain'">
+    <!-- Use any element to open the sidenav -->
+<span (click)="openNav()"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+  </svg></span>
+    <router-outlet></router-outlet>
+</div>

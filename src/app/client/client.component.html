@@ -1,0 +1,65 @@
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<h2 class="titre">La liste de nos clients</h2>
+
+<div class="input-group" style="padding-top: 20px; padding-bottom: 20px; width: 400px;">
+    <input type="text" id="example-input1-group2" name="example-input1-group2" class="form-control" [(ngModel)] = "Search" name="Search" placeholder="rechercher un client ">
+    <span class="input-group-btn">
+        <button disabled="true" type="button" class="btn btn-effect-ripple btn-secondary" style="background-color: #154b88;"><i class="fa fa-search"></i></button>
+    </span>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="main-box clearfix">
+                <div class="table-responsive">
+                    <table class="table user-list">
+                        <thead>
+                            <tr>
+                                <th><span>Client</span></th>
+                                <th><span>Inscription</span></th>
+                                <th class="text-center"><span>Status</span></th>
+                                <th><span>Email</span></th>
+                                <th>&nbsp;</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let i of client| user:Search">
+                                <td>
+                                    <img *ngIf="i.img" src="{{imgUrl+i.img}}" alt="" class="img-fluid rounded-circle w-60">
+                                    <img *ngIf="i.img==''" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="">
+                                    <a class="user-link">{{i.Nom}}&nbsp;{{i.Prenom}}</a>
+                                </td>
+                                <td>
+                                   {{i.createdAt.substr(0,10)}}
+                                </td>
+                                <td class="text-center">
+                                    <span class="label label-default" *ngIf="i.etat==1">Activé</span>
+                                    <span class="label label-default" *ngIf="i.etat==0">Désactivé</span>
+                                </td>
+                                <td>
+                                    <a>{{i.mail}}</a>
+                                </td>
+                                <td style="width: 2%;">
+                                    <a class="table-link danger" *ngIf="i.etat==1" (click)="ChangeEtat(i.id,i.etat)">
+                                        <span class="fa-stack">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-lock-fill" viewBox="0 0 16 16">
+                                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/>
+                                              </svg>
+                                        </span>
+                                    </a>
+                                    <a class="table-link danger" *ngIf="i.etat==0" (click)="ChangeEtat(i.id,i.etat)">
+                                        <span class="fa-stack">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-unlock-fill" viewBox="0 0 16 16">
+                                                <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2z"/>
+                                              </svg>
+                                        </span>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
