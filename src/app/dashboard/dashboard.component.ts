@@ -53,17 +53,33 @@ export class DashboardComponent implements OnInit {
   lineChartLabels1: Label[] = [];
 
 
-  barChartOptions: ChartOptions = {
-    responsive: true,
-  };
+  
   barChartLabels: Label[] = [];
   barChartType: ChartType = 'bar';
   barChartLegend = true;
   barChartPlugins = [];
-
+  public chartColors: Array<any> = [
+    { // first color
+      backgroundColor: '#729bfa',
+      borderColor: 'rgba(225,10,24,0.2)',
+      pointBackgroundColor: 'rgba(225,10,24,0.2)',
+      pointBorderColor: '#fff',
+      pointHoverBackgroundColor: '#fff',
+      pointHoverBorderColor: 'rgba(225,10,24,0.2)'
+    }];
   barChartData: ChartDataSets[] = [
     { data: [], label: 'nombre de carte par partenaire' }
   ];
+  public barChartOptions: ChartOptions = {
+    responsive: true,
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero: true
+        }
+      }]
+    }
+  };
   constructor(private service:DashbordService) { 
     this.onGenerate();
     this.statCarte();
