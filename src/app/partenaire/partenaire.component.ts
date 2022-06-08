@@ -183,7 +183,8 @@ export class PartenaireComponent implements OnInit {
       console.log(this.partenaireUpdated);
       this.service.UpdateProfil(this.partenaireUpdated).subscribe(res => {
         console.log(res);
-
+        this.successNotification();
+          this.close();
       })
     } else {
       this.service.postFile(this.file).subscribe(res => {
