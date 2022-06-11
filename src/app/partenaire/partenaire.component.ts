@@ -463,21 +463,36 @@ addstore(){
       showConfirmButton: false,
       timer: 1500
     })
-
+    this.closeAddStore();
     this.store='';
-    
+    this.service.getBoutique(this.id_part).subscribe(res=>{
+      this.listStore=res.data;
+    });
   })
 }
 
 deleteBoutique(id_boutique:number){
 
-  this.id_boutique=id_boutique;
-  this.service.deleteBoutique(this.id_boutique).subscribe(res=>{
+  Swal.fire({
+    title: 'Vous etes sure de supprimer ce boutique?',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonText: 'Oui',
+    cancelButtonText: 'Non',
+  }).then((result) => {
+    if (result.value) {
+      this.id_boutique=id_boutique;
+    this.service.deleteBoutique(this.id_boutique).subscribe(res=>{
     this.service.getBoutique(this.id_part).subscribe(res=>{
       this.listStore=res.data;
     });
 
   })
+
+    } else if (result.dismiss === Swal.DismissReason.cancel) {
+    }
+  });
+  
 }
 
 }
