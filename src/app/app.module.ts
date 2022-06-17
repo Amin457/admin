@@ -15,6 +15,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ChartsModule } from 'ng2-charts';
 import { PartenairePipe } from './pipes/partenaire.pipe';
 import { UserPipe } from './pipes/user.pipe';
+import { AddpartComponent } from './partenaire/addpart/addpart.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { UserPipe } from './pipes/user.pipe';
     DemandeComponent,
     DashboardComponent,
     PartenairePipe,
-    UserPipe
+    UserPipe,
+    AddpartComponent,
   ],
   imports: [
     ChartsModule,

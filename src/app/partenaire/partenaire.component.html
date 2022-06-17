@@ -7,9 +7,11 @@
 </div>
 <!--search bar-->
 <div class="input-group" style="padding-top: 20px; padding-bottom: 20px; width: 400px;">
-    <input type="text" id="example-input1-group2" name="example-input1-group2" class="form-control" type="search" [(ngModel)] = "Search" name="Search" placeholder="rechercher un partenaire ">
+    <input type="text" id="example-input1-group2" name="example-input1-group2" class="form-control" type="search"
+        [(ngModel)]="Search" name="Search" placeholder="rechercher un partenaire ">
     <span class="input-group-btn">
-        <button disabled="true" type="button" class="btn btn-effect-ripple btn-secondary" style="background-color: #154b88;"><i class="fa fa-search"></i></button>
+        <button disabled="true" type="button" class="btn btn-effect-ripple btn-secondary"
+            style="background-color: #154b88;"><i class="fa fa-search"></i></button>
     </span>
 </div>
 
@@ -44,18 +46,28 @@
                 <div class="card-body">
                     <div class="float-right btn-group btn-group-sm">
                         <a class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip"
-                            data-original-title="Edit" (click)="open(item.id_part)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-square" viewBox="0 0 16 16">
-                                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-                                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-                              </svg> </a>
-                        <a *ngIf="item.etat==1" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip"
-                            data-original-title="Delete" (click)="desactiver(item.id_part,item.etat)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
-                                <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/>
-                              </svg></a>
-                        <a *ngIf="item.etat==0" class="btn btn-secondary tooltips" data-placement="top" data-toggle="tooltip"
-                        data-original-title="Delete" (click)="Activer(item.id_part,item.etat)"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
-                            <path d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z"/>
-                          </svg></a>
+                            data-original-title="Edit" (click)="open(item.id_part)"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-pencil-square" viewBox="0 0 16 16">
+                                <path
+                                    d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
+                                <path fill-rule="evenodd"
+                                    d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
+                            </svg> </a>
+                        <a *ngIf="item.etat==1" class="btn btn-secondary tooltips" data-placement="top"
+                            data-toggle="tooltip" data-original-title="Delete"
+                            (click)="desactiver(item.id_part,item.etat)"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="16" height="16" fill="currentColor" class="bi bi-lock" viewBox="0 0 16 16">
+                                <path
+                                    d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2zm3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2zM5 8h6a1 1 0 0 1 1 1v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z" />
+                            </svg></a>
+                        <a *ngIf="item.etat==0" class="btn btn-secondary tooltips" data-placement="top"
+                            data-toggle="tooltip" data-original-title="Delete"
+                            (click)="Activer(item.id_part,item.etat)"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-unlock" viewBox="0 0 16 16">
+                                <path
+                                    d="M11 1a2 2 0 0 0-2 2v4a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h5V3a3 3 0 0 1 6 0v4a.5.5 0 0 1-1 0V3a2 2 0 0 0-2-2zM3 8a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V9a1 1 0 0 0-1-1H3z" />
+                            </svg></a>
                     </div>
                     <ul class="list-inline mb-0">
                         <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
@@ -66,12 +78,16 @@
                                         d="M2.97 1.35A1 1 0 0 1 3.73 1h8.54a1 1 0 0 1 .76.35l2.609 3.044A1.5 1.5 0 0 1 16 5.37v.255a2.375 2.375 0 0 1-4.25 1.458A2.371 2.371 0 0 1 9.875 8 2.37 2.37 0 0 1 8 7.083 2.37 2.37 0 0 1 6.125 8a2.37 2.37 0 0 1-1.875-.917A2.375 2.375 0 0 1 0 5.625V5.37a1.5 1.5 0 0 1 .361-.976l2.61-3.045zm1.78 4.275a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0 1.375 1.375 0 1 0 2.75 0V5.37a.5.5 0 0 0-.12-.325L12.27 2H3.73L1.12 5.045A.5.5 0 0 0 1 5.37v.255a1.375 1.375 0 0 0 2.75 0 .5.5 0 0 1 1 0zM1.5 8.5A.5.5 0 0 1 2 9v6h1v-5a1 1 0 0 1 1-1h3a1 1 0 0 1 1 1v5h6V9a.5.5 0 0 1 1 0v6h.5a.5.5 0 0 1 0 1H.5a.5.5 0 0 1 0-1H1V9a.5.5 0 0 1 .5-.5zM4 15h3v-5H4v5zm5-5a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1v3a1 1 0 0 1-1 1h-2a1 1 0 0 1-1-1v-3zm3 0h-2v3h2v-3z" />
                                 </svg></a></li>
                         <li class="list-inline-item"><a title="" data-placement="top" data-toggle="tooltip"
-                                class="tooltips" data-original-title="configuration" (click)="openConfig1(item.id_part)"><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
-                                    <path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z"/>
-                                    <path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z"/>
-                                  </svg></a>
+                                class="tooltips" data-original-title="configuration"
+                                (click)="openConfig1(item.id_part)"><svg xmlns="http://www.w3.org/2000/svg" width="25"
+                                    height="25" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492zM5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0z" />
+                                    <path
+                                        d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52l-.094-.319zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115l.094-.319z" />
+                                </svg></a>
                         </li>
-            
+
                     </ul>
                 </div>
             </div>
@@ -87,113 +103,71 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                    <div class="col-md-12">
-                        <label for="about">Nom de l'organisme</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="nom">
-                        </div>
+                <div class="col-md-12">
+                    <label for="about">Nom de l'organisme</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="nom">
                     </div>
-                    <div class="col-md-12">
-                        <label for="about">Fax</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="fax">
-                        </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="about">Fax</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="fax">
                     </div>
-                    <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
 
-                        <label for="about" >Télephone</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="tel">
-                        </div>
+                    <label for="about">Télephone</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="tel">
                     </div>
-                    <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
 
-                        <label for="about">Code Postal</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="codePostal">
-                        </div>
+                    <label for="about">Code Postal</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="codePostal">
                     </div>
-                    <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
 
-                        <label for="about">Mail</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="mail">
-                        </div>
+                    <label for="about">Mail</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="mail">
                     </div>
-                    <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
 
-                        <label for="about">Mot de passe</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="mdp">
-                        </div>
+                    <label for="about">Mot de passe</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="mdp">
                     </div>
-                    <br>
-                    <input type="file" name="file" (change)="onFileSelected($event)">
-                    <div class="mt-5 text-center">
-                        <button  (click)="update()" class="btn btn-primary profile-button" value="modifier">Mise à jours
+                </div>
+                <br>
+                <input type="file" name="file" (change)="onFileSelected($event)">
+                <div class="mt-5 text-center">
+                    <button (click)="update()" class="btn btn-primary profile-button" value="modifier">Mise à jours
                     </button>
-                        <button type="button" class="btn btn-secondary" (click)="close()">Close
-                        </button>
-                    </div>
+                    <button type="button" class="btn btn-secondary" (click)="close()">Fermer
+                    </button>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
 <!--Popup Add-->
-<div class="modal fade my-modal" tabindex="-1" role="dialog" #Add>
+<div style="overflow-y:auto;" class="modal fade my-modal" tabindex="-1" role="dialog" #Add>
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-body">
-                    <div class="col-md-12">
-                        <label for="about">Nom de l'organisme</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="nomAdd">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <label for="about">Fax</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="faxAdd">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-
-                        <label for="about" >Télephone</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="telAdd">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-
-                        <label for="about">Code Postal</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="codePostalAdd">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-
-                        <label for="about">Mail</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="mailAdd">
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-
-                        <label for="about">Mot de passe</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="mdpAdd">
-                        </div>
-                    </div>
-                    <br>
-                    <input type="file" name="file" (change)="onFileSelectedAdd($event)">
-                    <div class="mt-5 text-center">
-                        <button  (click)="AddPartenaire()" class="btn btn-primary profile-button">Ajouter
-                    </button>
-                        <button type="button" class="btn btn-secondary" (click)="closeAdd()">Close
-                        </button>
-                    </div>
+                <app-addpart></app-addpart>
             </div>
+            <div class="text-center">
+                <button type="button" class="btn btn-secondary" (click)="closeAdd()">Fermer
+                </button>
+            </div>
+                
         </div>
     </div>
 </div>
@@ -203,42 +177,42 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Configuration d'accées</h5>     
-             </div>
+                <h5 class="modal-title">Configuration d'accées</h5>
+            </div>
             <div class="modal-body">
-                    <div class="col-md-12">
-                        <label for="about">AdresseIP</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="adresseIP">
-                        </div>
+                <div class="col-md-12">
+                    <label for="about">AdresseIP</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="adresseIP">
                     </div>
-                    <div class="col-md-12">
-                        <label for="about">Environnement</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="env">
-                        </div>
+                </div>
+                <div class="col-md-12">
+                    <label for="about">Environnement</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="env">
                     </div>
-                    <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
 
-                        <label for="about" >StoreID</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="storeID">
-                        </div>
+                    <label for="about">StoreID</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="storeID">
                     </div>
-                    <div class="col-md-12">
+                </div>
+                <div class="col-md-12">
 
-                        <label for="about">ID base de données</label>
-                        <div>
-                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="dbID">
-                        </div>
+                    <label for="about">ID base de données</label>
+                    <div>
+                        <input type="text" class="form-control" name="dateDebut" [(ngModel)]="dbID">
                     </div>
-                    <br>
-                    <div class="mt-5 text-center">
-                        <button  (click)="AddConfig1()" class="btn btn-primary profile-button">Valider
+                </div>
+                <br>
+                <div class="mt-5 text-center">
+                    <button (click)="AddConfig1()" class="btn btn-primary profile-button">Valider
                     </button>
-                        <button type="button" class="btn btn-secondary" (click)="closeConfig()">Close
-                        </button>
-                    </div>
+                    <button type="button" class="btn btn-secondary" (click)="closeConfig()">Fermer
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -249,20 +223,22 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                    <h3> La liste des boutiques</h3>
-             </div>
+                <h3> La liste des boutiques</h3>
+            </div>
             <div class="modal-body">
                 <ul class="list-group list-group-flush" *ngFor="let i of listStore">
-                    <li class="list-group-item">{{i.boutique}}<button type="button" class="close" (click)="deleteBoutique(i.id)" aria-label="Close"><span aria-hidden="true">&times;</span>
-                    </button></li>
-                    
-                  </ul>
-                    <br>
-                    <div class="mt-5 text-center">
-                        <button  (click)="openAddStore()" class="btn btn-primary profile-button">Ajouter un boutique </button>
-                        <button type="button" class="btn btn-secondary" (click)="closeStore()">Close
-                        </button>
-                    </div>
+                    <li class="list-group-item">{{i.boutique}}<button type="button" class="close"
+                            (click)="deleteBoutique(i.id)" aria-label="Close"><span aria-hidden="true">&times;</span>
+                        </button></li>
+
+                </ul>
+                <br>
+                <div class="mt-5 text-center">
+                    <button (click)="openAddStore()" class="btn btn-primary profile-button">Ajouter un boutique
+                    </button>
+                    <button type="button" class="btn btn-secondary" (click)="closeStore()">Fermer
+                    </button>
+                </div>
             </div>
         </div>
     </div>
@@ -273,8 +249,8 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                    <h4>Ajouter un nouveau boutique à la liste</h4>
-             </div>
+                <h4>Ajouter un nouveau boutique à la liste</h4>
+            </div>
             <div class="modal-body">
                 <div class="col-md-12">
                     <label for="about">Nom du boutique</label>
@@ -282,11 +258,11 @@
                         <input type="text" class="form-control" placeholder="Nom du boutique" [(ngModel)]="store">
                     </div>
                 </div>
-                    <div class="mt-5 text-center">
-                        <button  (click)="addstore()" class="btn btn-primary profile-button">Ajouter</button>
-                        <button type="button" class="btn btn-secondary" (click)="closeAddStore()">Close
-                        </button>
-                    </div>
+                <div class="mt-5 text-center">
+                    <button (click)="addstore()" class="btn btn-primary profile-button">Ajouter</button>
+                    <button type="button" class="btn btn-secondary" (click)="closeAddStore()">Fermer
+                    </button>
+                </div>
             </div>
         </div>
     </div>

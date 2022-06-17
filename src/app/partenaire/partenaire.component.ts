@@ -49,7 +49,6 @@ export class PartenaireComponent implements OnInit {
   storeID!: number;
   dbID!: string;
   config: Config = new Config();
-
   //ngModel Boutique
   store!:string;
   addStore:AddStore = new AddStore();
@@ -204,7 +203,6 @@ export class PartenaireComponent implements OnInit {
   //les alerts
   successNotification() {
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
       title: 'Mise à jours avec succés',
       showConfirmButton: false,
@@ -223,7 +221,6 @@ export class PartenaireComponent implements OnInit {
     }).then((result) => {
       if (result.value) {
         Swal.fire({
-          position: 'top-end',
           icon: 'success',
           title: 'Ce partenaire est désactivé',
           showConfirmButton: false,
@@ -243,7 +240,6 @@ export class PartenaireComponent implements OnInit {
         })
 
       } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire('Annuler', 'Ce partenaire reste activé.)', 'error');
       }
     });
   }
@@ -251,77 +247,45 @@ export class PartenaireComponent implements OnInit {
 
 
   Activer(id_part: number, etat: number) {
-    Swal.fire({
-      title: 'Vous etes sure d"activer ce partenaire?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonText: 'Oui',
-      cancelButtonText: 'Non',
-    }).then((result) => {
-      if (result.value) {
 
+    this.service.verifConfig(id_part).subscribe(res => {
+      if(res.data[0].adresseIP.length<1||res.data[0].env.length<1||res.data[0].storeID.length<1||res.data[0].dbId.length<1){
+        Swal.fire('Il faut remplir la configuration de ce partenaire', 'error');
+      }else{
         Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Ce partenaire est activé',
-          showConfirmButton: false,
-          timer: 1500
-        })
-
-        this.service.Desactivate(etat, id_part).subscribe(res => {
-          this.service.getPartenaire().subscribe(
-            (res) => {
-              this.partenaires = res.data;
-              console.log(this.partenaires);
-              return false;
-            },
-            error => {
-              console.log(error);
-            });
-
-        })
-
-      } else if (result.dismiss === Swal.DismissReason.cancel) {
-        Swal.fire({
-          position: 'top-end',
-          icon: 'success',
-          title: 'Ce partenaire reste désactivé.',
-          showConfirmButton: false,
-          timer: 1500
-        })
+          title: 'Vous etes sure d"activer ce partenaire?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonText: 'Oui',
+          cancelButtonText: 'Non',
+        }).then((result) => {
+          if (result.value) {
+    
+            Swal.fire({
+              icon: 'success',
+              title: 'Ce partenaire est activé',
+              showConfirmButton: false,
+              timer: 1500
+            })
+    
+            this.service.Desactivate(etat, id_part).subscribe(res => {
+              this.service.getPartenaire().subscribe(
+                (res) => {
+                  this.partenaires = res.data;
+                  console.log(this.partenaires);
+                  return false;
+                },
+                error => {
+                  console.log(error);
+                });
+    
+            })
+    
+          } else if (result.dismiss === Swal.DismissReason.cancel) {
+          }
+        });
       }
-    });
-  }
-
-  AddPartenaire() {
-    this.partenaireAdd.societe = this.nomAdd;
-    this.partenaireAdd.Fax = this.faxAdd;
-    this.partenaireAdd.codePostal = this.codePostalAdd;
-    this.partenaireAdd.mail = this.mailAdd;
-    this.partenaireAdd.mdp = this.mdpAdd;
-    this.partenaireAdd.tel = this.telAdd;
-    if (this.nomAdd == '' || this.faxAdd.length < 8 || this.mdpAdd.length < 8 || this.codePostalAdd == '' || this.mailAdd == '' ||  this.telAdd.length < 8) {
-      Swal.fire('invalide', 'Vérifier les champs', 'error');
-    } else {
-      this.service.postFile(this.fileAdd).subscribe(res => {
-        this.partenaireAdd.img = res.data;
-        this.service.AddPartenaire(this.partenaireAdd).subscribe(res => {
-          console.log(res.data[0].id_part);
-          this.id_part=res.data[0].id_part;
-          console.log('ajouté');
-          
-          Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Partenaire ajouté avec succés',
-            showConfirmButton: false,
-            timer: 1500
-          })
-          this.closeAdd();
-          this.openConfig();
-        })
-      })
-    }
+    })
   }
 
   //Configuration
@@ -380,7 +344,6 @@ this.config.storeID=this.storeID;
     console.log(res);
    
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
       title: res.message,
       showConfirmButton: false,
@@ -404,7 +367,6 @@ AddConfig1(){
     this.service.AddConfig(this.config).subscribe(res=>{
       console.log(res);
       Swal.fire({
-        position: 'top-end',
         icon: 'success',
         title: res.message,
         showConfirmButton: false,
@@ -457,7 +419,6 @@ addstore(){
     console.log(res);
 
     Swal.fire({
-      position: 'top-end',
       icon: 'success',
       title:  'Boutique '+this.store+' a été ajouté',
       showConfirmButton: false,

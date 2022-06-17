@@ -1,0 +1,123 @@
+
+            <form [formGroup]="reactiveForm" #form="ngForm">
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="societe1" class="form-label">Nom de l'organisme :</label>
+                    <input type="text" id="societe1" name="societe1" formControlName="societe1" required minlength="2" maxlength="250" class="form-control form-control-sm" [class.is-invalid]="societe1.invalid && (societe1.dirty || societe1.touched)">
+                    <div *ngIf="societe1.invalid && (societe1.dirty || societe1.touched)" class="invalid-feedback">
+                      <div *ngIf="societe1.errors?.['required']">
+                        champ obligatoire.
+                      </div>
+                      <div *ngIf="societe1.errors?.['minlength']">
+                        au minimum 3 caractère.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="mail1" class="form-label">Email:</label>
+                    <input type="mail" id="mail1" name="mail1" formControlName="mail1" placeholder="exemple@exemple.com" required minlength="1" maxlength="250" class="form-control form-control-sm" [class.is-invalid]="mail1.invalid && (mail1.dirty || mail1.touched)">
+                    <div *ngIf="mail1.invalid && (mail1.dirty || mail1.touched)" class="invalid-feedback">
+                      <div *ngIf="mail1.errors?.['required']">
+                        champ obligatoire.
+                      </div>
+                      <div *ngIf="!mail1.errors?.['required'] && !mail1.errors?.['minlength'] && !mail1.errors?.['maxlength'] && mail1.errors?.['emailValidator']">
+                        Format email invalide.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="mdp1" class="form-label">Mot de passe:</label>
+                    <div class="input-group input-group-sm has-validation">
+                      <input [type]="showPassword ? 'text' : 'password'" id="mdp1" name="mdp1" formControlName="mdp1" required minlength="8" class="form-control form-control-sm" [class.is-invalid]="mdp1.invalid && (mdp1.dirty || mdp1.touched)">
+                      <button type="button" class="btn btn-outline-secondary" (click)="showPassword = !showPassword">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                          <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0z"/>
+                          <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8zm8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7z"/>
+                        </svg>
+                      </button>
+                      <div *ngIf="mdp1.invalid && (mdp1.dirty || mdp1.touched)" class="invalid-feedback">
+                        <div *ngIf="mdp1.errors?.['required']">
+                          champ obligatoire.
+                        </div>
+                        <div *ngIf="mdp1.errors?.['minlength']">
+                          au minimum 8 caractère.
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!--1-->
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="codePostal1" class="form-label">code Postal :</label>
+                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" id="codePostal1" name="codePostal" formControlName="codePostal1"  required minlength="1" maxlength="250" class="form-control form-control-sm" [class.is-invalid]="codePostal1.invalid && (codePostal1.dirty || codePostal1.touched)">
+                    <div *ngIf="codePostal1.invalid && (codePostal1.dirty || codePostal1.touched)" class="invalid-feedback">
+                      <div *ngIf="codePostal1.errors?.['required']">
+                        champ obligatoire.
+                      </div>
+                      <div *ngIf="codePostal1.errors?.['minlength']">
+                        au minimum 4 chiffre.
+                      </div>
+      
+                    </div>
+                  </div>
+                </div>
+                <!--2-->
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="tel1" class="form-label">tel :</label>
+                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" id="tel1" name="tel1" formControlName="tel1"  required minlength="8" maxlength="10" class="form-control form-control-sm" [class.is-invalid]="tel1.invalid && (tel1.dirty || tel1.touched)">
+                    <div *ngIf="tel1.invalid && (tel1.dirty || tel1.touched)" class="invalid-feedback">
+                      <div *ngIf="tel1.errors?.['required']">
+                        champ obligatoire.
+                      </div>
+                      <div *ngIf="tel1.errors?.['minlength']">
+                        au minimum 8 chiffre.
+                      </div>
+  
+                    </div>
+                  </div>
+                </div>
+                <!--3-->
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="Fax1" class="form-label">Fax :</label>
+                    <input onkeypress='return event.charCode >= 48 && event.charCode <= 57' type="text" id="Fax1" name="Fax1" formControlName="Fax1"  required minlength="8" maxlength="10" class="form-control form-control-sm" [class.is-invalid]="Fax1.invalid && (Fax1.dirty || Fax1.touched)">
+                    <div *ngIf="Fax1.invalid && (Fax1.dirty || Fax1.touched)" class="invalid-feedback">
+                      <div *ngIf="Fax1.errors?.['required']">
+                        champ obligatoire.
+                      </div>
+                      <div *ngIf="Fax1.errors?.['minlength']">
+                        au minimum 8 chiffre.
+                      </div>
+  
+                    </div>
+                  </div>
+                </div>
+                <!--4-->
+                <div class="row">
+                  <div class="col mb-2">
+                    <label for="img1" class="form-label">Image :</label>
+                    <input (change)="onFileSelectedAdd($event)"  type="file" id="img1" name="img1" formControlName="img1"  class="form-control form-control-sm" [class.is-invalid]="img1.invalid && (img1.dirty || img1.touched)">
+                    <div *ngIf="img1.invalid && (img1.dirty || img1.touched)" class="invalid-feedback">
+                      <div *ngIf="img1.errors?.['required']">
+                        champ obligatoire.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                    <div class="col mb-2 d-grid">
+                      <button style="width:100%" type="button" class="btn btn-sm btn-primary" (click)="validate()">Valider</button>
+                    </div>
+                  </div>
+                </form>
+             
+            
+                

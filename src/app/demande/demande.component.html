@@ -17,7 +17,7 @@
                             <a class="btn btn-primary tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Info" (click)="open()">
                                 <i class="fa fa-search"></i>
                             </a>
-                            <a class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Aprouver" (click)="approuved(i.id_part,i.societe)">
+                            <a class="btn btn-success tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Aprouver" (click)="openConfig1(i.id_part)">
                                 <i class="fa fa-check"></i>
                             </a>
                             <a  class="btn btn-danger tooltips" data-placement="top" data-toggle="tooltip" data-original-title="Delete" (click)="delete(i.id_part,i.societe)">
@@ -54,6 +54,99 @@
                     <li class="list-group-item"><b>Code Postal:</b>&nbsp;{{item.codePostal}}</li>
                     <li class="list-group-item"><b>Téléphone:</b>&nbsp;{{item.tel}}</li>
                 </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--Popup Config-->
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #Config>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Configuration d'accées</h5>     
+             </div>
+            <div class="modal-body">
+                    <div class="col-md-12">
+                        <label for="about">AdresseIP</label>
+                        <div>
+                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="adresseIP">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <label for="about">Environnement</label>
+                        <div>
+                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="env">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+
+                        <label for="about" >StoreID</label>
+                        <div>
+                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="storeID">
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+
+                        <label for="about">ID base de données</label>
+                        <div>
+                            <input type="text" class="form-control" name="dateDebut" [(ngModel)]="dbID">
+                        </div>
+                    </div>
+                    <br>
+                    <div class="mt-5 text-center">
+                        <button  (click)="AddConfig1()" class="btn btn-primary profile-button">Valider
+                    </button>
+                        <button type="button" class="btn btn-secondary" (click)="closeConfig()">Fermer
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Popup Boutique-->
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #Store>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <h3> La liste des boutiques</h3>
+             </div>
+            <div class="modal-body">
+                <ul class="list-group list-group-flush" *ngFor="let i of listStore">
+                    <li class="list-group-item">{{i.boutique}}<button type="button" class="close" (click)="deleteBoutique(i.id)" aria-label="Close"><span aria-hidden="true">&times;</span>
+                    </button></li>
+                    
+                  </ul>
+                    <br>
+                    <div class="mt-5 text-center">
+                        <button  (click)="openAddStore()" class="btn btn-primary profile-button">Ajouter un boutique </button>
+                        <button type="button" class="btn btn-secondary" (click)="closeStore()">Fermer
+                        </button>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Popup Ajouter Boutique-->
+<div class="modal fade my-modal" tabindex="-1" role="dialog" #AddStore>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                    <h4>Ajouter un nouveau boutique à la liste</h4>
+             </div>
+            <div class="modal-body">
+                <div class="col-md-12">
+                    <label for="about">Nom du boutique</label>
+                    <div>
+                        <input type="text" class="form-control" placeholder="Nom du boutique" [(ngModel)]="store">
+                    </div>
+                </div>
+                    <div class="mt-5 text-center">
+                        <button  (click)="addstore()" class="btn btn-primary profile-button">Ajouter</button>
+                        <button type="button" class="btn btn-secondary" (click)="closeAddStore()">Fermer
+                        </button>
+                    </div>
             </div>
         </div>
     </div>

@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { Client } from '../model/client_model';
@@ -31,4 +32,9 @@ export class ClientComponent implements OnInit {
     })
   }
 
+  date(date1 : Date) {
+
+    let datePipe: DatePipe = new DatePipe('en-US');
+    return datePipe.transform(new Date(date1),'yyyy-MM-dd');
+  }
 }

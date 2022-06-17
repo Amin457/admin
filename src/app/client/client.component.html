@@ -30,7 +30,8 @@
                                     <a class="user-link">{{i.Nom}}&nbsp;{{i.Prenom}}</a>
                                 </td>
                                 <td>
-                                   {{i.createdAt.substr(0,10)}}
+                                   {{date(i.createdAt)}}
+                                   
                                 </td>
                                 <td class="text-center">
                                     <span class="label label-default" *ngIf="i.etat==1">Activé</span>

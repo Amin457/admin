@@ -82,4 +82,8 @@ export class UserService {
     return this.http.put<any>(`${this.baseURL}`+'deleteUser/'+id+'/'+etat,{})
   }
 
+  
+  verifConfig(id:number):Observable<any>{
+    return this.http.get<any>(`${this.baseURL}`+'verifConfig/'+id)
+  }
 }
