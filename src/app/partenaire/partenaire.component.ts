@@ -14,7 +14,7 @@ import { AddStore, Store } from '../model/store-model';
 })
 export class PartenaireComponent implements OnInit {
   Search ='';
-
+  reactiveForm!: FormGroup;
 
   closeResult: string = '';
   partenaires: Partenaires[]=[];
@@ -48,6 +48,10 @@ export class PartenaireComponent implements OnInit {
   env!: string;
   storeID!: number;
   dbID!: string;
+  password_cegid!:string;
+  warehouseID!:string;
+  username_cegid!:string;
+
   config: Config = new Config();
   //ngModel Boutique
   store!:string;
@@ -305,7 +309,9 @@ export class PartenaireComponent implements OnInit {
         this.env=res.results[0].env;
         this.storeID=res.results[0].storeID;
         this.dbID=res.results[0].dbId;
-        
+        this.warehouseID=res.results[0].warehouseID;
+        this.username_cegid=res.results[0].username_cegid;
+        this.password_cegid=res.results[0].password_cegid;        
       },
       error => {
         console.log(error);
@@ -364,6 +370,9 @@ AddConfig1(){
     this.config.env=this.env;
     this.config.storeID=this.storeID;
     this.config.id_part=this.id_part;
+    this.config.username_cegid=this.username_cegid;
+    this.config.warehouseID=this.warehouseID;
+    this.config.password_cegid=this.password_cegid;
     this.service.AddConfig(this.config).subscribe(res=>{
       console.log(res);
       Swal.fire({
